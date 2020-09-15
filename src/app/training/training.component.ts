@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TrainingService } from '../services/training.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class TrainingComponent implements OnInit {
   trainingInfo = [];
 
 
-  constructor(private trainingService:TrainingService) { }
+  constructor(private trainingService:TrainingService,private routerBtn:Router) { }
 
 
 
@@ -25,6 +26,11 @@ export class TrainingComponent implements OnInit {
       //   console.log(t.Fees);
       // })
     })
+  }
+
+  newTraining()
+  {
+    this.routerBtn.navigate(['/training/create']);
   }
 
 }

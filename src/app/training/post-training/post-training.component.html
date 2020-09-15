@@ -5,31 +5,31 @@
     <div class="form-group row">
       
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="CourseTitle" placeholder="Course Title" name="CourseTitle" ngModel>
+        <input type="text" class="form-control" id="CourseTitle" placeholder="Course Title" name="CourseTitle" required ngModel>
       </div>
     </div>
     <div class="form-group row">
      
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="Description" placeholder="Course Description" name="Description" ngModel>
+        <input type="text" class="form-control" id="Description" placeholder="Course Description" name="Description" required ngModel>
       </div>
     </div>
     <div class="form-group row">
      
         <div class="col-sm-5">
-          <input type="text" class="form-control" id="Method" placeholder="Method" name="Method" ngModel>
+          <input type="text" class="form-control" id="Method" placeholder="Method" name="Method" required ngModel>
         </div>
         <div class="col-sm-5">
-            <input type="number" class="form-control" id="Fees" placeholder="Course Fees" name="Fees" ngModel>
+            <input type="number" class="form-control" id="Fees" placeholder="Course Fees" name="Fees" required ngModel>
           </div>
       </div>
       <div class="form-group row">
      
         <div class="col-sm-5">
-          <input type="text" class="form-control" id="Faculty" placeholder="Choose Faculty" name="Faculty" ngModel>
+          <input type="text" class="form-control" id="Faculty" placeholder="Choose Faculty" name="Faculty" required ngModel>
         </div>
         <div class="col-sm-5">
-          <input type="text" class="form-control"  placeholder="Category" name="Category" ngModel>
+          <input type="text" class="form-control"  placeholder="Category" name="Category" required ngModel>
         </div>
       </div>
       <h6 class="ml-2">Course Session Schedule</h6>
@@ -47,23 +47,23 @@
       </div>
       <div class="form-group row">     
         <div class="col-sm-4">
-          <input type="text" class="form-control" id="sessionName" placeholder="Session Name" name="SessionName" ngModel>
+          <input type="text" class="form-control" id="sessionName" placeholder="Session Name" name="SessionName" required ngModel>
         </div>
         <div class="col-sm-3">
-          <input type="text" class="form-control"  placeholder="Start Time" name="srtTime" ngModel>
+          <input type="text" class="form-control"  placeholder="Start Time" name="srtTime" required ngModel>
         </div>
         <div class="col-sm-3">
-          <input type="text" class="form-control"  placeholder="End Time" name="endTime" ngModel>
+          <input type="text" class="form-control"  placeholder="End Time" name="endTime" required ngModel>
         </div>
       </div>
 
       <div class="form-group row">     
         
         <div class="col-sm-5">
-          <input type="number" class="form-control"  placeholder="Total Sessions" name="totalSessions" ngModel>
+          <input type="number" class="form-control"  placeholder="Total Sessions" name="totalSessions" required ngModel>
         </div>
         <div class="col-sm-5">
-          <input type="number" class="form-control"  placeholder="Weekly Sessions" name="weeklySessions" ngModel>
+          <input type="number" class="form-control"  placeholder="Weekly Sessions" name="weeklySessions" required ngModel>
         </div>
       </div>     
      
@@ -72,7 +72,7 @@
 
     <div class="form-group row">
       <div class="col-sm-10">
-        <button type="submit" class="btn" style="background-color: orangered; width: 100px;border-radius: 10px; color: white;">Save</button>
+        <button type="submit" class="btn" style="background-color: orangered; width: 100px;border-radius: 10px; color: white;" [disabled]="!form.valid">Save</button>
       </div>
     </div>
   </form>

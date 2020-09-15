@@ -24,6 +24,7 @@ import { EditFacultyComponent } from './faculties/edit-faculty/edit-faculty.comp
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
+import { EditCourseComponent } from './courses/edit-course/edit-course.component';
 
 
 const appRoutes : Routes = [
@@ -37,11 +38,13 @@ const appRoutes : Routes = [
     {path:'admin/edit/:adminID', component:EditAdminComponent,canActivate:[AuthGuardService]},
     
 
-  {path:'training' , component: TrainingComponent, canActivate:[AuthGuardService],children:[
-    {path:'create', component:PostTrainingComponent},
-  ]},
+  {path:'training' , component: TrainingComponent, canActivate:[AuthGuardService]},
+    {path:'training/create', component:PostTrainingComponent,canActivate:[AuthGuardService]},
+  
   {path:'course' , component: CoursesComponent,canActivate:[AuthGuardService]},
     {path:'course/create', component:CreateCourseComponent},
+    {path:'course/edit/:code', component:EditCourseComponent},
+    
  
   {path:'news' , component: NewsComponent},
   {path:'news/create' , component: NewPostComponent},
@@ -75,7 +78,8 @@ const appRoutes : Routes = [
     EditAdminComponent,
     NewFacultyComponent,
     EditFacultyComponent,
-    LoginComponent
+    LoginComponent,
+    EditCourseComponent
   ],
   imports: [
     BrowserModule,
