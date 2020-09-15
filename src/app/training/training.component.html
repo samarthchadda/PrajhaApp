@@ -1,0 +1,65 @@
+
+<div class="wrapper ">
+   
+  <div class="table2 " >
+                                           
+    <div class="row2">
+  
+      <div class="cell2 "  >
+          <h2>Trainings</h2>
+  
+      </div>
+      <div class="cell2" >
+          <button class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> New Training</button>
+      </div>       
+                     
+    </div>                     
+  </div> 
+
+
+    <div class="table shadow p-3 mb-5">
+      
+      <div class="row header" >
+        
+        <div class="cell">
+          Course Name
+        </div>
+        <div class="cell">
+          Course Code
+        </div>
+        <div class="cell">
+          Course Category
+        </div>        
+        <div class="cell" >
+        
+        </div>
+      </div>
+      
+      <div class="row" *ngFor="let training of trainingInfo">
+      
+        <div class="cell" data-title="Course Name"  >
+            {{ training.Title}}
+           
+        </div>
+        <div class="cell" data-title="Course Code">
+            {{ training.Code}}
+        </div>
+        <div class="cell" data-title="Course Category">
+            {{ training.TrainingCategory}}
+        </div>
+       
+        <div class="cell" >
+          <a [routerLink]="['/training/edit/'+ training.Code]"><u>MANAGE</u></a>
+            
+        </div>
+      
+      </div>
+          
+    </div>
+</div> 
+  
+
+
+<div class="shadow p-3 mb-5">
+<router-outlet></router-outlet>
+</div>
