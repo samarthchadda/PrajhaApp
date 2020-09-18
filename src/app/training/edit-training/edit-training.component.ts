@@ -16,7 +16,7 @@ export class EditTrainingComponent implements OnInit {
 
   allFaculties = [];
   allFacName = [];
-  
+
 
   days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
 
