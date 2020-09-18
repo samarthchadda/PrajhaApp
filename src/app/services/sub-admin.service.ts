@@ -35,13 +35,10 @@ export class SubAdminService {
     return this.http.post('https://prajhaapp.herokuapp.com/api/edit-subAdmin',data);
   }
 
-<<<<<<< HEAD
   deleteAdmin(data)
   {
     console.log(data);
     return this.http.post('https://prajhaapp.herokuapp.com/api/delete-sub-admin',data);
   }
 
-=======
->>>>>>> 572d478ea633d70c38dc8806b2b11c1f4e52bc2e
 }

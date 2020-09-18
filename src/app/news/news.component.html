@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="table2 mt-4" >
                                            
     <div class="row2">
@@ -14,8 +13,6 @@
     </div>                     
   </div> 
 
-=======
->>>>>>> 572d478ea633d70c38dc8806b2b11c1f4e52bc2e
 <div class="row shadow p-3 m-5 bg-white rounded" style="border:none; background:white; height:auto; width:auto" *ngFor="let news of newsInfo">
     <div class="col-sm-4 mr-4" >
         <img [src]="news.Image" style="height:200px; width: 300px;" />
@@ -23,7 +20,6 @@
     <div class="col-sm-6">  
         <p>Posted Date : {{news.PostedDate | date:'medium'}}</p>
         <p style="font-size:20px; color:#7e8797;">{{news.NewsContent}}</p>
-<<<<<<< HEAD
         <span class="mr-4">
             <button (click)="editNews(news.NewsId)" class="btn btn-primary rounded-circle"><i class="fa fa-pencil" aria-hidden="true"></i></button>
          </span>
@@ -31,7 +27,5 @@
         <button (click)="deleteNews(news.NewsId)" class="btn btn-danger rounded-circle"><i class="fa fa-trash" aria-hidden="true" ></i></button>
         </span>
 
-=======
->>>>>>> 572d478ea633d70c38dc8806b2b11c1f4e52bc2e
     </div>
 </div>

@@ -15,7 +15,6 @@ export class PostTrainingComponent implements OnInit {
   days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
 
   //creating JS object for training
-<<<<<<< HEAD
   courseData = {
     trainingID:null,
     name:'',   
@@ -29,23 +28,6 @@ export class PostTrainingComponent implements OnInit {
       weeklySessions:null,
       availDay:[],
       timings:''       
-=======
-  trainingData = {
-    
-    title:'',
-    category:'',
-    description:'',
-    method:'',
-    fees:null,
-    faculty:'',
-    schedule:{
-      sessionNm:'',
-      totalSessions:null,
-      weeklySessions:null,
-      availDay:[],
-      srtTime:'',
-      endTime:'',            
->>>>>>> 572d478ea633d70c38dc8806b2b11c1f4e52bc2e
     }
     
   }
@@ -55,23 +37,15 @@ export class PostTrainingComponent implements OnInit {
    
  
   }
-<<<<<<< HEAD
  
   onChange(checkBox:any)
   { 
     this.courseData.schedule.availDay.push(checkBox.value);
-=======
-  
-  onChange(checkBox:any)
-  { 
-    this.trainingData.schedule.availDay.push(checkBox.value);
->>>>>>> 572d478ea633d70c38dc8806b2b11c1f4e52bc2e
   }
  
   onSubmit(form:NgForm)
   {
     
-<<<<<<< HEAD
     this.courseData.name = form.value.CourseTitle;   
     this.courseData.description = form.value.Description;
     this.courseData.method = form.value.Method;
@@ -85,26 +59,6 @@ export class PostTrainingComponent implements OnInit {
     console.log(this.courseData);
 
 
-=======
-    this.trainingData.title = form.value.CourseTitle;
-    this.trainingData.category = form.value.Category;
-    this.trainingData.description = form.value.Description;
-    this.trainingData.method = form.value.Method;
-    this.trainingData.fees = form.value.Fees;
-    this.trainingData.faculty = form.value.Faculty;
-    this.trainingData.schedule.sessionNm = form.value.SessionName;
-    this.trainingData.schedule.totalSessions = form.value.totalSessions;
-    this.trainingData.schedule.weeklySessions = form.value.weeklySessions;
-    this.trainingData.schedule.srtTime = form.value.srtTime;
-    this.trainingData.schedule.endTime = form.value.endTime;
-    console.log(this.trainingData);
-
-
-    this.trainingService.postTraining(this.trainingData).subscribe(res=>{
-      console.log(res);
-     
-    });
->>>>>>> 572d478ea633d70c38dc8806b2b11c1f4e52bc2e
 
   }
 

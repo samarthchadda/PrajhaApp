@@ -64,7 +64,6 @@ export class EditAdminComponent implements OnInit {
 
   }
 
-<<<<<<< HEAD
   deleteSubAdmin(id)
   { 
     console.log(id);
@@ -78,6 +77,4 @@ export class EditAdminComponent implements OnInit {
   }
 
 
-=======
->>>>>>> 572d478ea633d70c38dc8806b2b11c1f4e52bc2e
 }

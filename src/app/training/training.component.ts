@@ -30,11 +30,7 @@ export class TrainingComponent implements OnInit {
 
   newTraining()
   {
-<<<<<<< HEAD
     this.routerBtn.navigate(['/training/new']);
-=======
-    this.routerBtn.navigate(['/training/create']);
->>>>>>> 572d478ea633d70c38dc8806b2b11c1f4e52bc2e
   }
 
 }

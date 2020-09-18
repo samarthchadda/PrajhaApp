@@ -37,7 +37,6 @@ export class AuthService {
     return this.http.post('https://prajhaapp.herokuapp.com/api/login-sub-admin',data);
   }
 
-<<<<<<< HEAD
 
   adminLogin(data)
   {
@@ -45,8 +44,6 @@ export class AuthService {
   }
 
 
-=======
->>>>>>> 572d478ea633d70c38dc8806b2b11c1f4e52bc2e
   logout()
   {
     this.userSub.next(null);
