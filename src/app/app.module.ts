@@ -35,6 +35,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ToastrModule } from 'ngx-toastr';
 import { PermissionService } from './services/permission.service';
 import { PermissionGuardService } from './services/permission-guard.service';
+import { AppointmentFacultyComponent } from './appointment-faculty/appointment-faculty.component';
 
 
 const appRoutes : Routes = [
@@ -103,7 +104,8 @@ const appRoutes : Routes = [
     NewTrainingComponent,
     ShowCoursesComponent,
     EditNewsComponent,
-    DashboardComponent
+    DashboardComponent,
+    AppointmentFacultyComponent
   
   ],
   imports: [
