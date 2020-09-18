@@ -18,6 +18,12 @@ export class TrainingService {
     return this.http.post('https://prajhaapp.herokuapp.com/api/post-training',data);
   }
 
+  postCourseTraining(data)
+  {
+    return this.http.post('https://prajhaapp.herokuapp.com/api/post-course-training',data);
+  }
+
+
   getSingleTraining(code)
   {
     return this.http.get('https://prajhaapp.herokuapp.com/api/single-training/'+code);

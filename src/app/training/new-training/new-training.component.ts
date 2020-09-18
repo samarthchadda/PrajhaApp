@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { TrainingService } from 'src/app/services/training.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class NewTrainingComponent implements OnInit {
 
   trainingImage;
 
-  constructor(private trainingService:TrainingService) { }
+  constructor(private trainingService:TrainingService,private routerBtn:Router) { }
 
   ngOnInit(): void {
   }
@@ -37,7 +38,14 @@ export class NewTrainingComponent implements OnInit {
 
     //saving into database
     this.trainingService.postTraining(formData).subscribe(result=>{
-      console.log(result);
+      // console.log(result);
+      if(result["status"]){
+        window.alert("New Training Created");
+        this.routerBtn.navigate(['/training']);
+      }
+      else{
+        window.alert("Error Occured");
+      }
     },err=>{
       console.log(err);
     })

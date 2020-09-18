@@ -30,11 +30,16 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { NewTrainingComponent } from './training/new-training/new-training.component';
 import { ShowCoursesComponent } from './training/show-courses/show-courses.component';
 import { EditNewsComponent } from './news/edit-news/edit-news.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ToastrService } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
+import { PermissionService } from './services/permission.service';
+import { PermissionGuardService } from './services/permission-guard.service';
 
 
 const appRoutes : Routes = [
 
-  { path: '', redirectTo: '/faculties', pathMatch: 'full' },
+  { path: '', component:DashboardComponent },
 
   {path:'login' , component: LoginComponent}, 
 
@@ -97,7 +102,8 @@ const appRoutes : Routes = [
     ResetPasswordComponent,
     NewTrainingComponent,
     ShowCoursesComponent,
-    EditNewsComponent
+    EditNewsComponent,
+    DashboardComponent
   
   ],
   imports: [
@@ -105,10 +111,12 @@ const appRoutes : Routes = [
     FormsModule,
     CommonModule,
     ReactiveFormsModule,
+   
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot(),
   ],
-  providers: [AuthGuardService,AuthService],
+  providers: [AuthGuardService,AuthService,PermissionService,PermissionGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

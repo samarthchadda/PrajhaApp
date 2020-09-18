@@ -20,6 +20,7 @@ export class AuthService {
 
   userSub = new BehaviorSubject(null);
   userLoggedIn = new BehaviorSubject<boolean>(false);
+  userPermissions = new BehaviorSubject<[]>([]);
   
 
   isAuthenticated()

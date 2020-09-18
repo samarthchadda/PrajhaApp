@@ -35,7 +35,7 @@ export class CreateAdminComponent implements OnInit {
 
   onSubmit(form:NgForm)
   {
-    this.subAdminData.adminId = form.value.adminId;
+    this.subAdminData.adminId = +form.value.adminId;
     this.subAdminData.password = form.value.password;     
   
 
