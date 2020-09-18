@@ -27,8 +27,11 @@ export class AdminsComponent implements OnInit {
     this.routerBtn.navigate(['/admin/edit/'+id]);
   } 
 
+<<<<<<< HEAD
  
 
+=======
+>>>>>>> 572d478ea633d70c38dc8806b2b11c1f4e52bc2e
   newSubAdmin()
   {
     this.routerBtn.navigate(['/admin/create']);

@@ -19,7 +19,11 @@ export class CoursesComponent implements OnInit {
       this.courseInfo = res["AllCourses"];
 
       this.courseInfo.forEach(c=>{
+<<<<<<< HEAD
         // console.log(c.Fees);
+=======
+        console.log(c.Fees);
+>>>>>>> 572d478ea633d70c38dc8806b2b11c1f4e52bc2e
       })
     })
   }

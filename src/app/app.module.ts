@@ -24,12 +24,16 @@ import { EditFacultyComponent } from './faculties/edit-faculty/edit-faculty.comp
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
+<<<<<<< HEAD
 import { EditCourseComponent } from './edit-course/edit-course.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { NewTrainingComponent } from './training/new-training/new-training.component';
 import { ShowCoursesComponent } from './training/show-courses/show-courses.component';
 import { EditNewsComponent } from './news/edit-news/edit-news.component';
+=======
+import { EditCourseComponent } from './courses/edit-course/edit-course.component';
+>>>>>>> 572d478ea633d70c38dc8806b2b11c1f4e52bc2e
 
 
 const appRoutes : Routes = [
@@ -44,11 +48,15 @@ const appRoutes : Routes = [
     
 
   {path:'training' , component: TrainingComponent, canActivate:[AuthGuardService]},
+<<<<<<< HEAD
     {path:'training/create/:id', component:PostTrainingComponent,canActivate:[AuthGuardService]},
     {path:'training/new', component:NewTrainingComponent,canActivate:[AuthGuardService]},
     {path:'training/show-courses/:id', component:ShowCoursesComponent,canActivate:[AuthGuardService]},
     
     
+=======
+    {path:'training/create', component:PostTrainingComponent,canActivate:[AuthGuardService]},
+>>>>>>> 572d478ea633d70c38dc8806b2b11c1f4e52bc2e
   
   {path:'course' , component: CoursesComponent,canActivate:[AuthGuardService]},
     {path:'course/create', component:CreateCourseComponent},
@@ -57,16 +65,22 @@ const appRoutes : Routes = [
  
   {path:'news' , component: NewsComponent},
   {path:'news/create' , component: NewPostComponent},
+<<<<<<< HEAD
   {path:'news/edit/:id' , component: EditNewsComponent},
   
+=======
+>>>>>>> 572d478ea633d70c38dc8806b2b11c1f4e52bc2e
   
   {path:'training/edit/:code' , component: EditTrainingComponent,canActivate:[AuthGuardService]},
 
   {path:'faculties' , component: FacultiesComponent,canActivate:[AuthGuardService]},
   {path:'faculties/new' , component: NewFacultyComponent,canActivate:[AuthGuardService]},
   {path:'faculties/edit/:faculId' , component: EditFacultyComponent,canActivate:[AuthGuardService]},
+<<<<<<< HEAD
 
   {path:'appointments' , component: AppointmentsComponent,canActivate:[AuthGuardService]},
+=======
+>>>>>>> 572d478ea633d70c38dc8806b2b11c1f4e52bc2e
   
   
   
@@ -92,6 +106,7 @@ const appRoutes : Routes = [
     NewFacultyComponent,
     EditFacultyComponent,
     LoginComponent,
+<<<<<<< HEAD
     EditCourseComponent,
     AppointmentsComponent,
     ResetPasswordComponent,
@@ -99,6 +114,9 @@ const appRoutes : Routes = [
     ShowCoursesComponent,
     EditNewsComponent
   
+=======
+    EditCourseComponent
+>>>>>>> 572d478ea633d70c38dc8806b2b11c1f4e52bc2e
   ],
   imports: [
     BrowserModule,
