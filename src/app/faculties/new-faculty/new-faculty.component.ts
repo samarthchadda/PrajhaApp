@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { FacultyService } from 'src/app/services/faculty.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class NewFacultyComponent implements OnInit {
     fee:null
   };
 
-  constructor(private facultyService:FacultyService) { }
+  constructor(private facultyService:FacultyService,private routerBtn:Router) { }
 
   ngOnInit(): void {
   }
@@ -35,6 +36,13 @@ export class NewFacultyComponent implements OnInit {
   
     this.facultyService.postFaculty(this.facultyData).subscribe(res=>{
           console.log(res);
+          if(res["Status"]){
+            window.alert("New Faculty Created");
+            this.routerBtn.navigate(['/faculties']);
+          }
+          else{
+            window.alert("Error Occured");
+          }
     },err=>{
       console.log(err);
     });   

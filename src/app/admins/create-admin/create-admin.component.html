@@ -1,28 +1,29 @@
-
-<br>
-<div class="shadow p-3 mb-5">
-<div class="container px-2 shadow p-3 mb-5 bg-white rounded " class="z-index:10; ">
+<div class="text-center">
+  <h3>Create Sub-Admin : </h3>
+</div>
+<div class="shadow p-3 mb-5 bg-white rounded">
+<div class="container px-2 " class="z-index:10; ">
 <form (ngSubmit)="onSubmit(form)" #form="ngForm">
     <div class="form-group row">
-      <label for="inputEmail3" class="col-sm-2 col-form-label">Admin Id</label>
+      <label for="inputEmail3" class="col-sm-2 col-form-label"><strong> Admin Id : </strong></label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="adminId" placeholder="Admin Id" ngModel >
+        <input type="text" class="form-control" name="adminId" placeholder="Admin Id" [(ngModel)]="id" readonly>
       </div>
     </div>
     <div class="form-group row">
-      <label for="inputPassword3" class="col-sm-2 col-form-label">Admin Password</label>
+      <label for="inputPassword3" class="col-sm-2 col-form-label"><strong> Admin Password : </strong></label>
       <div class="col-sm-10">
-        <input type="text" class="form-control"  placeholder="Password" name="password" ngModel>
+        <input type="text" class="form-control"  placeholder="Password" name="password" ngModel required>
       </div>
     </div>
     <br>
  
     <div class="form-group row">
-      <div class="ml-4"> <strong>Set Permissions <br></strong></div>
+      <div class="ml-3"> <strong>Set Permissions : <br></strong></div>
       <br>
       <div class="ml-4">
        <br> <div class="form-check" *ngFor="let perm of permissions">
-          <input class="form-check-input" type="checkbox" id="gridCheck1"  name="prem"  [value]="perm" (change)="onChange(checkBox)" #checkBox ngModel>
+          <input class="form-check-input" type="checkbox" id="gridCheck1"  name="prem"  [value]="perm"  (change)="data($event,perm)" #checkBox ngModel>
           <label class="form-check-label" for="gridCheck1">
             {{perm}}
           </label>
@@ -32,7 +33,7 @@
     </div>
     <div class="form-group row">
       <div class="col-sm-10">
-        <button type="submit" class="btn" style="background-color: orangered; width: 100px;border-radius: 10px; color: white;">Save</button>
+        <button type="submit"  [disabled]="!form.valid" class="btn" style="background-color: orangered; width: 100px;border-radius: 10px; color: white;">Save</button>
       </div>
     </div>
   </form>

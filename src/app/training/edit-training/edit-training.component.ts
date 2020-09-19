@@ -17,6 +17,7 @@ export class EditTrainingComponent implements OnInit {
   allFaculties = [];
   allFacName = [];
 
+  selectedDays = [];
 
   days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
 
@@ -75,6 +76,7 @@ export class EditTrainingComponent implements OnInit {
           this.trainingCode = result["course"].trainingId;
           console.log(this.trainingData)
           
+          this.selectedDays = this.trainingData.schedule.availDay;
 
           this.trainingData.schedule.availDay =[];
 
@@ -103,6 +105,21 @@ export class EditTrainingComponent implements OnInit {
   { 
     this.trainingData.schedule.availDay.push(checkBox.value);
   }
+
+  
+   // for uni selection of checkbox
+   data(e, id: any) {
+    if (e.target.checked === true) {
+      this.trainingData.schedule.availDay.push(id);
+    } else {
+      for (let i = 0; i < this.trainingData.schedule.availDay.length; i++) {
+        if (this.trainingData.schedule.availDay[i] === id) {
+          this.trainingData.schedule.availDay.splice(i, 1);
+        }
+      }
+    }
+  }
+
  
   onSubmit(form:NgForm)
   {  

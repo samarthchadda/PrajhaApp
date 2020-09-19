@@ -39,7 +39,7 @@
 
           <div (click)="onCourse()">
             <a routerLink="/course"
-            [style.pointer-events]="!allowCourses ? 'none' : 'auto'" 
+            [style.pointer-events]="!allowCourses  ? 'none' : 'auto'" 
             [style.color]="!allowCourses ? '#fff' : ''">
             Courses
             </a>
@@ -49,7 +49,7 @@
 
             <div (click)="onFaculty()">
             <a routerLink="/faculties" [style.pointer-events]="!allowFaculties ? 'none' : 'auto'" 
-            [style.color]="!allowFaculties ? '#fff' : ''" >Faculties</a>
+            [style.color]="!allowFaculties  ? '#fff' : ''" >Faculties</a>
             </div>
 
             <a routerLink="/appointments">Appointments</a>
@@ -73,7 +73,7 @@
             </button>
             
   
-            <h2>Super Admin Panel</h2>
+            <h2>Admin Panel</h2>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="nav navbar-nav ml-auto">

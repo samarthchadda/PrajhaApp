@@ -17,10 +17,10 @@ export class AuthService {
     }
   }
 
-
   userSub = new BehaviorSubject(null);
   userLoggedIn = new BehaviorSubject<boolean>(false);
   userPermissions = new BehaviorSubject<[]>([]);
+  adminMode = new BehaviorSubject<boolean>(false);
   
 
   isAuthenticated()
@@ -51,6 +51,7 @@ export class AuthService {
     this.userLoggedIn.next(false);
     localStorage.setItem('userData',null);
     this.routerBtn.navigate(['/login']);
+    this.adminMode.next(false);
   }
 
 

@@ -34,4 +34,17 @@ export class AdminsComponent implements OnInit {
     this.routerBtn.navigate(['/admin/create']);
   }
 
+  deleteSubAdmin(id)
+  {
+
+  console.log(id);
+    //deleting sub-admin
+    this.subAdminService.deleteAdmin({"id":+id}).subscribe(res=>{
+      console.log(res);
+      this.ngOnInit();
+     
+    },err=>console.log(err));
+
+  }
+
 }

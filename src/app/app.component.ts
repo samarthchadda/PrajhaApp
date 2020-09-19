@@ -26,35 +26,55 @@ export class AppComponent implements OnInit  {
     this.navbarOpen = !this.navbarOpen;
   }
 
-
+  adminUser:boolean=false;
   ngOnInit()
   { 
+    
       this.authService.userLoggedIn.subscribe(res=>{
        this.login = res;
-      
-       this.permissions = JSON.parse(localStorage.getItem('permissions'));
-      
 
-        this.authService.userPermissions.subscribe(res=>{
-          console.log("B S :",res);
-          this.permissions = res;
-         
-          this.permissions.forEach(per=>{
-            if(per=="Courses"){
-              this.allowCourses = true;
-            }
-            if(per=="Trainings"){
-              this.allowTraining = true;
-            }
-            if(per=="Faculties Scheduling"){
-              this.allowFaculties = true;
-            }
+       this.authService.adminMode.subscribe(res=>{
+         console.log("Admin mode : ", res);
+
+         if(res)
+         {
+  
+          this.adminUser = true;
+          console.log("Admin modeee");
+          this.allowCourses = true;
+          this.allowTraining = true;
+          this.allowFaculties = true;
+          
             
-        })
+  
+         }
+         else{
+        
+         this.permissions = JSON.parse(localStorage.getItem('permissions'));
+        
+  
+          this.authService.userPermissions.subscribe(res=>{
+            console.log("B S :",res);
+            this.permissions = res;
+           
+            this.permissions.forEach(per=>{
+              if(per=="Courses"){
+                this.allowCourses = true;
+              }
+              if(per=="Trainings"){
+                this.allowTraining = true;
+              }
+              if(per=="Faculties Scheduling"){
+                this.allowFaculties = true;
+              }
+              
+          })
+  
+          })
+        }
 
-        })
 
-      
+       })     
      
 
       })
@@ -66,6 +86,7 @@ export class AppComponent implements OnInit  {
   {
       this.authService.logout();
       this.authService.userPermissions.next([]);
+      localStorage.setItem('userType',null);
       window.location.reload();
       
   }

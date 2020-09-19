@@ -4,6 +4,7 @@ import { SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Params } from '@angular/router';
 import { NewsService } from 'src/app/services/news.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-news',
@@ -24,7 +25,7 @@ export class EditNewsComponent implements OnInit {
   urlSafe: SafeResourceUrl;
   id:number;
   newsImage;
-  constructor(private route:ActivatedRoute,private newsService:NewsService,public sanitizer: DomSanitizer) { }
+  constructor(private route:ActivatedRoute,private newsService:NewsService,public sanitizer: DomSanitizer,private routerBtn:Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((newParams:Params)=>{
@@ -62,6 +63,13 @@ export class EditNewsComponent implements OnInit {
 
     this.newsService.editNews(formData).subscribe(result=>{
       console.log(result);
+       if(result["status"]){
+        window.alert(result["message"]);
+        this.routerBtn.navigate(['/news']);
+      }
+      else{
+        window.alert("Error Occured");
+      }
     },err=>{
       console.log(err);
     });

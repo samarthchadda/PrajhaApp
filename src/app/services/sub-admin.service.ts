@@ -12,6 +12,11 @@ export class SubAdminService {
 
   }
 
+  getCounter()
+  {
+    return this.http.get('https://prajhaapp.herokuapp.com/api/subadmin-counter'); 
+  }
+
   fetchAllSubAdmins()
   {
     return this.http.get('https://prajhaapp.herokuapp.com/api/all-sub-admins');

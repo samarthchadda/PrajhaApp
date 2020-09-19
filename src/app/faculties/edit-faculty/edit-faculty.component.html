@@ -10,11 +10,11 @@
          </div>
       <div class="form-group col-md-4">
         <label for="facultyNm">Faculty Name</label>
-        <input type="text" class="form-control" id="facultyNm" placeholder="Faculty Name" name="name" [(ngModel)]="facultyData.Name">
+        <input type="text" class="form-control" id="facultyNm" placeholder="Faculty Name" name="name" required [(ngModel)]="facultyData.Name">
       </div>
       <div class="form-group col-md-4">
         <label for="facCategory">Category</label>
-        <input type="text" class="form-control" id="facCategory"  placeholder="Category" name="category" [(ngModel)]="facultyData.Category" >
+        <input type="text" class="form-control" id="facCategory"  placeholder="Category" name="category" required [(ngModel)]="facultyData.Category" >
       </div>
     </div>
 
@@ -23,11 +23,11 @@
         </div>
         <div class="form-group col-md-4">
           <label for="facPwd">Password</label>
-          <input type="text" class="form-control" id="facPwd" placeholder="Password" name="password" [(ngModel)]="facultyData.Password">
+          <input type="text" class="form-control" id="facPwd" placeholder="Password" name="password" required [(ngModel)]="facultyData.Password">
         </div>
         <div class="form-group col-md-4">
           <label for="facFees">Fees</label>
-          <input type="number" class="form-control" id="facFees"  placeholder="Fee" name="fee" [(ngModel)]="facultyData.Fees">
+          <input type="number" class="form-control" id="facFees"  placeholder="Fee" name="fee" required [(ngModel)]="facultyData.Fees" pattern="^\d+([^.,])?$">
         </div>
       </div>
 
@@ -36,7 +36,7 @@
         <div class="form-group col-md-5">
         </div>
         <div class="form-group col-md-4">
-            <button type="submit" class="btn btn-primary pl-lg-2 ml-lg-2">Save Changes</button>
+            <button type="submit" [disabled]="!form.valid" class="btn btn-primary pl-lg-2 ml-lg-2">Save Changes</button>
         </div>        
       </div>    
   </form>

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NewsService } from 'src/app/services/news.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class NewPostComponent implements OnInit {
 
 
 
-  constructor(private newsService:NewsService,private http:HttpClient) { }
+  constructor(private newsService:NewsService,private http:HttpClient,private routerBtn:Router) { }
 
 
   newsImage;
@@ -40,6 +41,13 @@ export class NewPostComponent implements OnInit {
 
     this.newsService.postNews(formData).subscribe(result=>{
       console.log(result);
+      if(result["Status"]){
+        window.alert(result["message"]);
+        this.routerBtn.navigate(['/news']);
+      }
+      else{
+        window.alert("Error Occured");
+      }
     },err=>{
       console.log(err);
     });

@@ -25,7 +25,7 @@ export class AppointmentFacultyComponent implements OnInit {
 
   newFaculties()
   {
-      this.routerBtn.navigate(['/faculties/new']);
+      this.routerBtn.navigate(['/appoint-faculties/new']);
   }
 
 

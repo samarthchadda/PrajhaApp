@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FacultyService } from 'src/app/services/faculty.service';
 
 @Component({
@@ -29,7 +29,7 @@ export class EditFacultyComponent implements OnInit {
     category:''
   };
 
-  constructor(private route:ActivatedRoute,private facultyService:FacultyService ) { }
+  constructor(private route:ActivatedRoute,private facultyService:FacultyService,private routerBtn:Router ) { }
 
   ngOnInit(): void {
 
@@ -58,6 +58,13 @@ export class EditFacultyComponent implements OnInit {
     //saving data into database
     this.facultyService.editFaculty(this.facultyInfo).subscribe(res=>{
       console.log(res);
+      if(res["Status"]){
+        window.alert("Faculty Details Updated");
+        this.routerBtn.navigate(['/faculties']);
+      }
+      else{
+        window.alert("Error Occured");
+      }
     })
     
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { SubAdminService } from '../services/sub-admin.service';
 
 @Component({
@@ -12,6 +12,7 @@ export class EditAdminComponent implements OnInit {
 
   permissions = ['Trainings','Courses','Revenues','Faculties Scheduling'];
   id;
+  subAdminPerm = [];
 
   subAdminData ={
     AdminId : null,
@@ -26,7 +27,7 @@ export class EditAdminComponent implements OnInit {
   };
 
 
-  constructor(private route:ActivatedRoute,private subAdminService:SubAdminService) { }
+  constructor(private route:ActivatedRoute,private subAdminService:SubAdminService,private routerBtn:Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((newParams:Params)=>{
@@ -37,6 +38,7 @@ export class EditAdminComponent implements OnInit {
           this.subAdminData = res["SubAdmin"];
           console.log(this.subAdminData);
 
+          this.subAdminPerm = this.subAdminData.Permissions;
           this.subAdminData.Permissions = [];
           
       })
@@ -50,6 +52,22 @@ export class EditAdminComponent implements OnInit {
   }
 
 
+    // for uni selection of checkbox
+    data(e, id: any) {
+      if (e.target.checked === true) {
+        this.subAdminData.Permissions.push(id);
+      } else {
+        for (let i = 0; i < this.subAdminData.Permissions.length; i++) {
+          if (this.subAdminData.Permissions[i] === id) {
+            this.subAdminData.Permissions.splice(i, 1);
+          }
+        }
+      }
+    }
+
+
+
+
   onSubmit(form:NgForm)
   {
     this.subAdminInfo.adminId = JSON.parse(this.id);
@@ -57,8 +75,15 @@ export class EditAdminComponent implements OnInit {
     this.subAdminInfo.permissions = this.subAdminData.Permissions;
 
     //saving changes to database
-    this.subAdminService.editSubAdmin(this.subAdminInfo).subscribe(result=>{
-      console.log(result);
+    this.subAdminService.editSubAdmin(this.subAdminInfo).subscribe(res=>{
+      console.log(res);
+      if(res["Status"]){
+        window.alert(res["message"]);
+        this.routerBtn.navigate(['/admin']);
+      }
+      else{
+        window.alert("Error Occured");
+      }
     })
 
 
@@ -70,6 +95,7 @@ export class EditAdminComponent implements OnInit {
     //deleting sub-admin
     this.subAdminService.deleteAdmin({"id":+id}).subscribe(res=>{
       console.log(res);
+      
      
     },err=>console.log(err));
 

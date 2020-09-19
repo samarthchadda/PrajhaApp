@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SubAdminService } from 'src/app/services/sub-admin.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { SubAdminService } from 'src/app/services/sub-admin.service';
 export class CreateAdminComponent implements OnInit {
 
   id:number;
-  constructor(private subAdminService:SubAdminService) { }
+  constructor(private subAdminService:SubAdminService,private routerBtn:Router) { }
 
   permissions = ['Trainings','Courses','Revenues','Faculties Scheduling'];
 
@@ -21,8 +22,12 @@ export class CreateAdminComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.id = this.subAdminService.id;
-    console.log(this.id);    
+   
+
+    this.subAdminService.getCounter().subscribe(res=>{
+      console.log(res);
+      this.id = res["counter"];
+    })
 
   }
 
@@ -32,6 +37,24 @@ export class CreateAdminComponent implements OnInit {
     // this.subAdminData.permissions.push(checkBox.value);
     this.adminPerm.push(checkBox.value);
   }
+
+
+    // for uni selection of checkbox
+    data(e, id: any) {
+      if (e.target.checked === true) {
+        this.adminPerm.push(id);
+      } else {
+        for (let i = 0; i < this.adminPerm.length; i++) {
+          if (this.adminPerm[i] === id) {
+            this.adminPerm.splice(i, 1);
+          }
+        }
+      }
+    }
+
+
+
+
 
   onSubmit(form:NgForm)
   {
@@ -54,6 +77,13 @@ export class CreateAdminComponent implements OnInit {
     //saving to database
     this.subAdminService.postSubAdmin(this.subAdminData).subscribe(res=>{
       console.log(res);
+      if(res["Status"])
+      {
+        window.alert("New Sub-Admin Created");
+        this.routerBtn.navigate(['/admin']);
+      }else{
+        window.alert("Error Occured");
+      }
     })
 
   }
