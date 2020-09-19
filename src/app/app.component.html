@@ -17,7 +17,7 @@
 
     <div class="wrapper" *ngIf="login">
       <!-- Sidebar Holder -->
-      <nav id="sidebar" [ngClass]="{ 'active': navbarOpen }">
+      <nav id="sidebar" [ngClass]="{ 'active': navbarOpen }" style="border-right: 1px solid gray;">
         <div class="sidebar-header">
           <h3 class="pt-3">Prajha App</h3>
         </div>
@@ -26,35 +26,35 @@
           <p></p>
          
           <li>
-            <a >Dashboard</a>
+            <a style="color:black">Dashboard</a>
 
-            <a routerLink="/admin" >Admins</a>
+            <a routerLink="/admin" style="color:black">Admins</a>
 
             <div (click)="onTraining()">
             <a routerLink="/training"  [style.pointer-events]="!allowTraining ? 'none' : 'auto'" 
-            [style.color]="!allowTraining ? '#fff' : ''" >Trainings</a>
+            [style.color]="!allowTraining ? 'black' : ''"  style="color:black" >Trainings</a>
             </div>
 
           <!-- <a  ><button [disabled]="allowCourses" style="color: white;">Courses</button></a> -->
 
           <div (click)="onCourse()">
-            <a routerLink="/course"
+            <a routerLink="/course" style="color:black"
             [style.pointer-events]="!allowCourses  ? 'none' : 'auto'" 
-            [style.color]="!allowCourses ? '#fff' : ''">
+            [style.color]="!allowCourses ? 'black' : ''">
             Courses
             </a>
             </div>
 
-            <a routerLink="/news">News</a>
+            <a routerLink="/news" style="color:black">News</a>
 
             <div (click)="onFaculty()">
             <a routerLink="/faculties" [style.pointer-events]="!allowFaculties ? 'none' : 'auto'" 
-            [style.color]="!allowFaculties  ? '#fff' : ''" >Faculties</a>
+            [style.color]="!allowFaculties  ? 'black' : ''" style="color:black" >Faculties</a>
             </div>
 
-            <a routerLink="/appointments">Appointments</a>
+            <a routerLink="/appointments" style="color:black">Appointments</a>
             
-            <a (click)="logoutAdmin()">Logout</a>
+            <a (click)="logoutAdmin()" style="color:black; ">Logout</a>
                                
           </li>
          
@@ -65,21 +65,21 @@
       <!-- Page Content Holder -->
       <div id="content">
   
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg " style="background-color: #F06528;">
           <div class="container-fluid">
   
-            <button type="button" id="sidebarCollapse" (click)="toggleNavbar()" class="navbar-btn">
-              <i class="fa fa-toggle-on" aria-hidden="true" style="font-size:25px"></i>
+            <button type="button" id="sidebarCollapse" (click)="toggleNavbar()" class="navbar-btn" style="background-color: transparent;">
+              <i class="fa fa-toggle-on" aria-hidden="true" style="font-size:25px;background-color: transparent;"></i>
             </button>
             
   
-            <h2>Admin Panel</h2>
+            <h2 style="color: white;">Admin Panel</h2>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item active">
                   <a class="nav-link" (click)="logoutAdmin()">
-                    <strong> <h4>Logout</h4></strong>
+                    <strong> <h4 style="color: white;">Logout</h4></strong>
                     </a>
                 </li>
                
