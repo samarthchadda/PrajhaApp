@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('userType',"Admin");
           this.authService.adminMode.next(true);
           
-          this.routerBtn.navigate(['/']);
+          this.routerBtn.navigate(['/appointments']);
         }
       })
 
@@ -69,7 +69,7 @@ export class LoginComponent implements OnInit {
           this.authService.userPermissions.next(res["SubAdmin"].Permissions);
           this.permService.userPermissions.next((res["SubAdmin"].Permissions));
           this.authService.adminMode.next(false);
-          this.routerBtn.navigate(['/']);
+          this.routerBtn.navigate(['/appointments']);
          
         }
       })

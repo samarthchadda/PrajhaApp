@@ -14,11 +14,11 @@ p {
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    color: black;
+    color: #999;
 }
 
 a, a:hover, a:focus {
-    color: black;
+    color: inherit;
     text-decoration: none;
     transition: all 0.3s;
 }
@@ -60,8 +60,8 @@ a, a:hover, a:focus {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background:white;
-    color: black;
+    background:#F06528;
+    color: #fff;
     transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
     transform-origin: bottom left;
 }
@@ -73,7 +73,7 @@ a, a:hover, a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background:white;
+    background:#F06528;
 }
 
 #sidebar ul.components {
@@ -82,7 +82,7 @@ a, a:hover, a:focus {
 }
 
 #sidebar ul p {
-    color: black;
+    color: #fff;
     padding: 10px;
 }
 
@@ -92,13 +92,13 @@ a, a:hover, a:focus {
     display: block;
 }
 #sidebar ul li a:hover {
-    color: black;
-    background: white;
+    color: #F06528;
+    background: #fff;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: black;
-    background: orangered;
+    color: #fff;
+    background: #F06528;
 }
 
 
@@ -139,7 +139,7 @@ a.download {
 
 a.article, a.article:hover {
     background: #6d7fcc !important;
-    color: black !important;
+    color: #fff !important;
 }
 
 
