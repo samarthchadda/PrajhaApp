@@ -76,6 +76,7 @@ const appRoutes : Routes = [
 
   {path:'appoint-faculties' , component: AppointmentFacultyComponent,canActivate:[AuthGuardService]},
   {path:'appoint-faculties/new' , component: NewAppointFacultyComponent,canActivate:[AuthGuardService]},
+  {path:'appoint-faculties/edit/:faculId' , component: EditAppointFacultyComponent,canActivate:[AuthGuardService]},
 
   {path:'appointments' , component: AppointmentsComponent,canActivate:[AuthGuardService]},
   

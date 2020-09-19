@@ -25,6 +25,11 @@ export class FacultyService {
     return this.http.get('https://prajhaapp.herokuapp.com/api/all-faculties/'+id);
   }
 
+  fetchSingleAppointFaculty(id)
+  {
+    return this.http.get('https://prajhaapp.herokuapp.com/api/all-appoint-faculties/'+id);
+  }
+
   postFaculty(data)
   {   
     return this.http.post('https://prajhaapp.herokuapp.com/api/faculty-signup',data);
@@ -39,5 +44,11 @@ export class FacultyService {
   {
     return this.http.post('https://prajhaapp.herokuapp.com/api/admin-edit-faculty',data);
   }
+
+  editAppointFaculty(data)
+  {
+    return this.http.post('https://prajhaapp.herokuapp.com/api/admin-edit-appointFaculty',data);
+  }
+
   
 }
