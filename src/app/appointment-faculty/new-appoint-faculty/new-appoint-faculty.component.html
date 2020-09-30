@@ -47,11 +47,11 @@
        
           <div class="col-sm-5">
             <label for="">Start Time</label>
-            <input type="time"  id="startTime{{i}}" formControlName="startTime" class="form-control" placeholder="Start Time" required>
+            <input type="time"  id="startTime{{i}}" formControlName="startTime" class="form-control" placeholder="Start Time" >
           </div>
           <div class="col-sm-5">
             <label for="">End Time</label>
-            <input type="time"  id="endTime{{i}}" formControlName="endTime" class="form-control" placeholder="End Time " required>
+            <input type="time"  id="endTime{{i}}" formControlName="endTime" class="form-control" placeholder="End Time " >
           </div>
           <div class="col-sm-1">
             <button *ngIf="facultyForm.controls.timeSlot['controls'].length > 1" (click)="deleteRow(i)" class="btn btn-danger"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
