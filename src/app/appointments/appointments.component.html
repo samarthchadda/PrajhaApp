@@ -1,0 +1,71 @@
+
+<div class="wrapper ">
+ 
+        <div class="text-center">
+            <h2>Appointments</h2>
+        </div>
+          
+    <!-- <div class="table2 " >
+                                             
+      <div class="row2">
+    
+        <div class="cell2 "  >
+          
+          <input type="text" [(ngModel)]="filteredStatus" class="form-control"  placeholder="Find Parent....">
+    
+        </div>
+          <div class="cell2" >
+            <input type="text" [(ngModel)]="filteredStatus" class="form-control"  placeholder="Find Coach....">
+          </div>    
+      
+                       
+      </div>                     
+    </div>  -->
+
+      <div class="table shadow p-3 mb-5">
+        
+        <div class="row header" >
+          <div class="cell">
+           Appointment ID
+          </div>
+          <div class="cell">
+            Coach Name
+          </div>
+          <div class="cell">
+            Parent Name
+          </div>             
+          <div class="cell" >
+            Date
+          </div>
+          <div class="cell" >
+            Time Slot
+          </div>
+        </div>
+        
+        <div class="row" *ngFor="let appointment of appointmentsData;">
+          <div class="cell" data-title="Appointment ID"  >
+           {{appointment.appointmentID}}
+           
+         </div>
+          <div class="cell" data-title="Coach Name"  >
+            {{appointment.FacultyName}}
+             
+          </div>
+          <div class="cell" data-title="Parent Name">
+            {{appointment.parent_phone}}
+          </div>
+          <div class="cell" data-title="Date">
+            {{appointment.appointmentDate | date:'fullDate'|titlecase}}
+        </div>
+        <div class="cell" data-title="Time Slot">
+            {{appointment.timeSlot}}
+        </div>
+     
+        
+        </div>
+            
+      </div>
+  </div> 
+    
+  
+  
