@@ -53,9 +53,16 @@ export class NewAppointFacultyComponent implements OnInit {
 
   onSubmit()
   {  
-    console.log(this.facultyForm.value);  
+    console.log("Start Time : ",this.facultyForm.value.timeSlot[0]["startTime"]=="");  
 
-        // saving data into database
+    if(this.facultyForm.value.timeSlot[0]["startTime"]=="")
+    {
+      this.facultyForm.value.timeSlot = []; 
+    }
+    console.log(this.facultyForm.value);
+
+
+        //saving data into database
         this.facultyService.postAppointFaculty(this.facultyForm.value).subscribe(res=>{
           console.log(res);
           if(res["status"]){
