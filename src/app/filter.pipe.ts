@@ -22,9 +22,12 @@ export class FilterPipe implements PipeTransform {
         resultArr.push(item);
       }
     }
+
+
     return resultArr;
 
     
   }
 
 }
+

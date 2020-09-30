@@ -17,7 +17,15 @@
  <div *ngIf="showCourseRev">   
     <div class="text-center">
         <h3>Courses Revenue</h3>
+        <br>
+        <label style="align-self: center;"> Search By Payment Date : </label>     
+        <input type="date" class="form-control" [(ngModel)]="deptDate" placeholder="Payment Date" [min]="curDate"
+       
+        required #doj="ngModel" style="width: 30%; margin-left: 35%;">
     </div>
+
+  
+
     <div class="table shadow p-3 mb-5">
       
       <div class="row header" >
@@ -43,7 +51,7 @@
        
       </div>
       
-      <div class="row" *ngFor="let revenue of sortCourseRevenues; let i=index">
+      <div class="row" *ngFor="let revenue of sortCourseRevenues | filterDate:deptDate:'PaymentDate'; let i=index">
       
         <div class="cell" data-title="S.No."  >
             {{i+1}}
@@ -76,6 +84,11 @@
     <div *ngIf="!showCourseRev">   
         <div class="text-center">
             <h3>Appointments Revenue</h3>
+            <br>
+            <label style="align-self: center;"> Search By Payment Date : </label>     
+            <input type="date" class="form-control" [(ngModel)]="deptDate" placeholder="Payment Date" [min]="curDate"
+           
+            required #doj="ngModel" style="width: 30%; margin-left: 35%;">
         </div>
         <div class="table shadow p-3 mb-5">
           
@@ -105,7 +118,7 @@
            
           </div>
           
-          <div class="row" *ngFor="let revenue of sortAppointRevenues; let i=index">
+          <div class="row" *ngFor="let revenue of sortAppointRevenues  | filterDate:deptDate:'PaymentDate'; let i=index">
           
             <div class="cell" data-title="S.No."  >
                 {{i+1}}

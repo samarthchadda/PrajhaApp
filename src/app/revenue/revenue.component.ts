@@ -13,6 +13,9 @@ export class RevenueComponent implements OnInit {
   
   showCourseRev = true;
 
+  deptDate : string = '';
+  curDate: string;
+
   constructor(private revenueService:RevenueService) { }
 
   ngOnInit(): void {

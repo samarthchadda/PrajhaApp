@@ -41,6 +41,7 @@ import { NewAppointFacultyComponent } from './appointment-faculty/new-appoint-fa
 import { RevenueComponent } from './revenue/revenue.component';
 import { FilterPipe } from './filter.pipe';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { FilterDatePipe } from './filter-date.pipe';
 
 
 const appRoutes : Routes = [
@@ -119,7 +120,8 @@ const appRoutes : Routes = [
     EditAppointFacultyComponent,
     NewAppointFacultyComponent,
     RevenueComponent,
-    FilterPipe
+    FilterPipe,
+    FilterDatePipe
   
   ],
   imports: [
